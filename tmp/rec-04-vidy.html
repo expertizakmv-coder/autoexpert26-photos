@@ -1,0 +1,108 @@
+<!-- ═══ РЕЦЕНЗИЯ · 04 · На какие экспертизы готовлю рецензии (.rvd#vidy) ═══
+     Суть: 7 направлений, по которым проверяю чужие заключения. Каждое — строка: номер, название, коротко что проверяю;
+     нажатие раскрывает подробности и ссылку на страницу услуги (перелинковка). Текст раскрытий есть в HTML сразу.
+     Стоит на месте блока «Практика осмотров» шаблона. Цвет — из head страницы.
+     Правки: строка — один <details class="rvd-it">: название — <h3>, кратко — .rvd-s, подробно — <p>, ссылка — .rvd-a. -->
+<style>
+section.rvd{background:#fff;padding:80px 20px;font-family:'PT Serif',Georgia,serif;color:#1A1F1F;box-sizing:border-box}
+.rvd *{box-sizing:border-box}
+.rvd-w{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:56px;align-items:start}
+.rvd-side{position:sticky;top:120px}
+.rvd-k{display:flex;align-items:center;gap:12px;margin:0 0 12px;font:13px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5D6B6B}
+.rvd-k:before{content:"";width:28px;height:2px;background:#FFD600;flex:none}
+html body .rvd .rvd-h{margin:0 0 16px;font-family:'PT Serif',Georgia,serif;font-size:36px;line-height:1.2;font-weight:400;color:#1A1F1F}
+.rvd-lead{margin:0;font-size:17px;line-height:1.6;color:#3D4848}
+.rvd-list{display:flex;flex-direction:column;gap:10px}
+.rvd-it{border-radius:18px;background:#EEF4F4;transition:box-shadow .25s,background .25s}
+.rvd-it[open]{background:#fff;box-shadow:0 12px 32px var(--svc-shadow,rgba(20,25,40,.10))}
+.rvd-it>summary{list-style:none;display:grid;grid-template-columns:36px 1fr 32px;gap:4px 14px;align-items:start;padding:20px 22px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.rvd-it>summary::-webkit-details-marker{display:none}
+.rvd-n{grid-row:1 / 3;padding-top:3px;font:700 13px Arial,sans-serif;color:var(--ae-accent,#434C78);font-variant-numeric:tabular-nums}
+html body .rvd .rvd-it h3{margin:0;font-family:'PT Serif',Georgia,serif;font-size:19px;line-height:1.3;font-weight:700;color:#1A1F1F}
+.rvd-s{grid-column:2;font:14.5px/1.45 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#5D6B6B}
+.rvd-ic{grid-column:3;grid-row:1 / 3;align-self:center;position:relative;width:32px;height:32px;border-radius:50%;background:#fff;transition:transform .3s,background .25s}
+.rvd-it[open] .rvd-ic{background:#EEF4F4;transform:rotate(45deg)}
+.rvd-ic:before,.rvd-ic:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--svc-t,#2F3550);transform:translate(-50%,-50%)}
+.rvd-ic:after{transform:translate(-50%,-50%) rotate(90deg)}
+.rvd-b{padding:0 22px 22px 72px}
+.rvd-b p{margin:0 0 12px;font:15px/1.6 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#3D4848}
+html body .rvd a.rvd-a{font:700 15px 'PT Serif',Georgia,serif;color:var(--ae-accent,#434C78);text-decoration:none;border-bottom:1px solid currentColor}
+html body .rvd a.rvd-a:hover{color:var(--svc-t,#2F3550)}
+.rvd-note{margin:20px 0 0;font:13.5px/1.5 Arial,sans-serif;color:#5D6B6B}
+@media (max-width:959px){
+  section.rvd{padding:60px 20px}
+  .rvd-w{grid-template-columns:1fr;gap:24px}
+  .rvd-side{position:static}
+  html body .rvd .rvd-h{font-size:28px}
+  .rvd-lead{font-size:16px}
+  .rvd-it>summary{grid-template-columns:26px 1fr 28px;gap:3px 10px;padding:16px 16px}
+  html body .rvd .rvd-it h3{font-size:17px}
+  .rvd-s{font-size:14px}
+  .rvd-ic{width:28px;height:28px}
+  .rvd-b{padding:0 16px 18px}
+}
+@media (prefers-reduced-motion:reduce){.rvd-it,.rvd-ic{transition:none}}
+</style>
+
+<section class="rvd" id="vidy">
+  <div class="rvd-w">
+    <div class="rvd-side">
+      <p class="rvd-k">Направления</p>
+      <h2 class="rvd-h">На&nbsp;какие экспертизы готовлю рецензии</h2>
+      <p class="rvd-lead">Проверяю заключения только по&nbsp;тем направлениям, в&nbsp;которых сам провожу экспертизы: от&nbsp;расчёта ущерба до&nbsp;маркировки VIN и&nbsp;технического состояния. Нажмите на&nbsp;направление, чтобы увидеть, что проверяю.</p>
+    </div>
+
+    <div class="rvd-list">
+      <details class="rvd-it">
+        <summary><span class="rvd-n">01</span><h3>Ущерб после ДТП, ОСАГО и&nbsp;КАСКО</h3><span class="rvd-s">Калькуляции ремонта, износ, УТС, годные остатки</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Перечень повреждений и&nbsp;их связь с&nbsp;ДТП, обоснованность замены или ремонта, цены запчастей, нормо-часы и&nbsp;материалы, выбор методики (Единая методика ЦБ или методика Минюста), рыночная стоимость до&nbsp;ДТП и&nbsp;годные остатки, основания для износа и&nbsp;расчёта УТС.</p>
+          <a class="rvd-a" href="/expertiza-avto-kmv-skfo">Экспертиза ущерба после ДТП&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">02</span><h3>Обстоятельства ДТП и&nbsp;трасология</h3><span class="rvd-s">Механизм столкновения, соответствие повреждений</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Исходные данные и&nbsp;схема ДТП, контактное взаимодействие автомобилей, сопоставление следов по&nbsp;высоте, форме и&nbsp;направлению, соответствие повреждений заявленным обстоятельствам, обоснованность вывода о&nbsp;механизме происшествия.</p>
+          <a class="rvd-a" href="/ekspertiza-dtp-trasologiya-kmv-skfo">Экспертиза ДТП и&nbsp;трасология&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">03</span><h3>Техническое состояние, двигатель и&nbsp;КПП</h3><span class="rvd-s">Причина неисправности агрегата</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Достаточно&nbsp;ли проведённых исследований, чтобы установить причину поломки; разграничены&nbsp;ли производственный дефект, эксплуатационное повреждение и&nbsp;естественный износ; доказана&nbsp;ли причинная связь; данные диагностики и&nbsp;дефектовки.</p>
+          <a class="rvd-a" href="/expertiza-tehsostoyaniya-avto-kmv-skfo">Экспертиза двигателя и&nbsp;техсостояния&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">04</span><h3>Качество ремонта и&nbsp;ЛКП</h3><span class="rvd-s">Кузовной и&nbsp;механический ремонт, ТО, окраска</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Выводы о&nbsp;соблюдении технологии ремонта, дефектах лакокрасочного покрытия и&nbsp;замерах толщины, установленных деталях, связи между выполненными работами и&nbsp;возникшими дефектами.</p>
+          <a class="rvd-a" href="/expertiza-kachestva-remonta-kmv-skfo">Экспертиза качества ремонта&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">05</span><h3>VIN и&nbsp;маркировочные обозначения</h3><span class="rvd-s">Номера кузова, рамы, двигателя, признаки изменения</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Полнота описания маркировки и&nbsp;фотофиксации, применённые методы, обоснованность вывода о&nbsp;первоначальном номере, учтено&nbsp;ли влияние коррозии, повреждений и&nbsp;кузовного ремонта. Специальность&nbsp;23.1&nbsp;— моя основная.</p>
+          <a class="rvd-a" href="/expertiza-vin-nomera-kmv-skfo">Экспертиза VIN номера&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">06</span><h3>Спецтехника и&nbsp;самоходные машины</h3><span class="rvd-s">Номера рам, двигателей, заводские таблички</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Заключения об&nbsp;идентификационных номерах тракторов, погрузчиков, экскаваторов и&nbsp;прицепов: маркировочные площадки, заводские таблички, номера рам, двигателей и&nbsp;агрегатов.</p>
+          <a class="rvd-a" href="/ekspertiza-markirovki-spectehniki">Экспертиза спецтехники&nbsp;→</a>
+        </div>
+      </details>
+      <details class="rvd-it">
+        <summary><span class="rvd-n">07</span><h3>Рыночная стоимость автомобиля</h3><span class="rvd-s">Аналоги, корректировки, итоговая стоимость</span><span class="rvd-ic" aria-hidden="true"></span></summary>
+        <div class="rvd-b">
+          <p>Идентификация автомобиля и&nbsp;дата оценки, полнота исходных сведений, подбор аналогов, корректировки на&nbsp;пробег, комплектацию и&nbsp;состояние, обоснованность итоговой стоимости.</p>
+          <a class="rvd-a" href="/ocenka-avtomobilya-kmv-skfo">Оценка автомобиля&nbsp;→</a>
+        </div>
+      </details>
+      <p class="rvd-note">Строительные, медицинские, почерковедческие и&nbsp;другие экспертизы не&nbsp;по&nbsp;автомобилям не&nbsp;рецензирую.</p>
+    </div>
+  </div>
+</section>

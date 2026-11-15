@@ -1,0 +1,126 @@
+<!-- ═══ РЕЦЕНЗИЯ · 11 · FAQ · Вопросы о рецензии (.aeq#faq) ═══
+     10 вопросов. Тексты совпадают с FAQPage в JSON-LD — поменял здесь, поменяй и там.
+     Первый вопрос (открыт) стоит на уровне карточки с телефоном — как на других страницах услуг (сдвиг считает скрипт).
+     Правки: вопрос — .aeq-t, ответ — <p> в .aeq-a; новый вопрос — скопировать целиком один .aeq-it. -->
+<style>
+.aeq{--ink:#111;--muted:#5f625f;--line:#c9c9c3;--bg:#dededa;--y:#ffd600;font-family:'PT Serif',Georgia,serif;color:var(--ink);background:var(--bg);padding:96px 0}
+.aeq *{box-sizing:border-box}
+.aeq a{color:inherit;text-decoration:none}
+.aeq-w{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:56px;align-items:start}
+.aeq-side{position:sticky;top:120px}
+.aeq-label{font-family:Arial,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin:0 0 12px;display:flex;align-items:center;gap:12px}
+.aeq-label:before{content:"";width:28px;height:2px;background:var(--y)}
+.aeq h2{font-family:'PT Serif',serif;font-size:36px;line-height:1.2;margin:0 0 20px;font-weight:400;color:#333}
+.aeq-lead{font-size:17px;line-height:1.6;color:#333;margin:0 0 28px}
+.aeq-card{background:#fff;border-radius:20px;padding:24px 26px}
+.aeq-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #ecece8;font-size:16px;line-height:1.5}
+.aeq-row:last-child{border-bottom:0;padding-bottom:0}
+.aeq-row:first-child{padding-top:0}
+.aeq-row small{display:block;font-size:13px;color:var(--muted)}
+.aeq-ico{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#f1f1ee;display:flex;align-items:center;justify-content:center}
+.aeq-ico svg{width:18px;height:18px;fill:var(--ink)}
+.aeq-tel{font-size:20px;font-weight:700;white-space:nowrap}
+.aeq-list{display:flex;flex-direction:column;gap:12px;margin-top:var(--aeq-off,0px)} /* первый вопрос — на уровне карточки с телефоном */
+.aeq-it{background:#fff;border-radius:18px;transition:box-shadow .25s}
+.aeq-it:hover,.aeq-it.open{box-shadow:0 12px 32px rgba(20,25,20,.08)}
+.aeq-q{width:100%;display:flex;align-items:center;gap:18px;background:none;border:0;padding:22px 24px;text-align:left;font-family:inherit;color:var(--ink);cursor:pointer}
+.aeq-n{flex-shrink:0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;width:22px}
+.aeq-t{flex:1;font-size:18px;line-height:1.4;font-weight:700}
+.aeq-ic{flex-shrink:0;position:relative;width:36px;height:36px;border-radius:50%;background:#f1f1ee;transition:background .25s,transform .3s}
+.aeq-ic::before,.aeq-ic::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.aeq-ic::after{transform:translate(-50%,-50%) rotate(90deg)}
+.aeq-it.open .aeq-ic{background:var(--y);transform:rotate(45deg)}
+.aeq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.aeq-a>div{overflow:hidden}
+.aeq-it.open .aeq-a{grid-template-rows:1fr}
+.aeq-a p{margin:0;padding:0 24px 24px 64px;font-size:16px;line-height:1.65;color:#333}
+@media (max-width:900px){
+.aeq{padding:64px 0}
+.aeq-w{grid-template-columns:1fr;gap:32px}
+.aeq-side{position:static}
+.aeq-list{margin-top:0}
+.aeq h2{font-size:30px}
+.aeq-q{padding:18px 16px;gap:12px}
+.aeq-n{display:none}
+.aeq-t{font-size:16px}
+.aeq-ic{width:32px;height:32px}
+.aeq-a p{padding:0 16px 20px;font-size:15px}
+.aeq-card{padding:18px 20px}
+}
+</style>
+
+<section class="aeq" id="faq">
+  <div class="aeq-w">
+    <div class="aeq-side">
+      <p class="aeq-label">Вопросы и ответы</p>
+      <h2>Вопросы о&nbsp;рецензии на&nbsp;судебную экспертизу</h2>
+      <p class="aeq-lead">Не нашли ответ? Позвоните или напишите — предварительное изучение заключения бесплатно. Работаю дистанционно по СКФО и России.</p>
+      <div class="aeq-card">
+        <div class="aeq-row"><span class="aeq-ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></span><div><small>Звоните</small><a class="aeq-tel" href="tel:+79286522288">+7 928 652-22-88</a></div></div>
+        <div class="aeq-row"><span class="aeq-ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span><div><small>Лично — по адресу</small>г. Минеральные Воды, ул. Железноводская, 30в</div></div>
+      </div>
+    </div>
+
+    <div class="aeq-list">
+      <div class="aeq-it open">
+        <button class="aeq-q" type="button" aria-expanded="true"><span class="aeq-n">01</span><span class="aeq-t">Можно ли оспорить заключение судебного эксперта?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Да, если в нём есть обоснованные сомнения. Сторона может заявить возражения, ходатайствовать о вызове эксперта для допроса или о дополнительной либо повторной экспертизе. Рецензия даёт этой позиции техническое обоснование. Решение принимает суд.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">02</span><span class="aeq-t">Сколько стоит рецензия на судебную экспертизу?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Рецензия на заключение по ущербу, оценке, VIN и качеству ремонта — от 10&nbsp;000&nbsp;₽, по обстоятельствам ДТП и трасологии — от 25&nbsp;000&nbsp;₽, по техническому состоянию агрегатов — после изучения материалов. Предварительное изучение заключения бесплатно.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">03</span><span class="aeq-t">Сколько времени занимает подготовка рецензии?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Срок зависит от объёма заключения и материалов дела. Дату готовности называю после предварительного изучения — до оплаты.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">04</span><span class="aeq-t">Имеет ли рецензия юридическую силу в суде?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Рецензию приобщают к делу как письменное доказательство и используют, чтобы обосновать возражения, вопросы эксперту и ходатайство о новой экспертизе. Как её оценить, решает суд вместе с другими доказательствами.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">05</span><span class="aeq-t">Можно ли рецензировать государственную судебную экспертизу?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Да. Проверяю заключения государственных и негосударственных судебных экспертов, досудебные исследования и экспертизы страховых компаний по автомобильным направлениям.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">06</span><span class="aeq-t">Нужно ли предоставлять автомобиль?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Обычно нет: рецензию делаю по документам, дистанционно. Если для проверки конкретного вывода нужен осмотр, скажу об этом заранее и согласуем его отдельно.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">07</span><span class="aeq-t">Можно ли рецензировать заключение страховой компании?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Да. Проверяю калькуляцию ремонта, применённую методику и технические основания отказа — в пределах материалов, которые есть у вас на руках.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">08</span><span class="aeq-t">Чем рецензия отличается от повторной экспертизы?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Рецензия — анализ уже готового заключения по вашему обращению. Повторная экспертиза — новое исследование, которое назначает суд и поручает другому эксперту.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">09</span><span class="aeq-t">Поможет ли рецензия назначить повторную экспертизу?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Существенные недостатки, найденные в рецензии, — аргументы для ходатайства. Но назначать повторную экспертизу или нет, решает суд, гарантировать это нельзя.</p></div></div>
+      </div>
+      <div class="aeq-it">
+        <button class="aeq-q" type="button" aria-expanded="false"><span class="aeq-n">10</span><span class="aeq-t">Что будет, если недостатков в заключении нет?</span><span class="aeq-ic" aria-hidden="true"></span></button>
+        <div class="aeq-a"><div><p>Скажу об этом после предварительного изучения, до оплаты. Задача рецензии — объективно проверить заключение, а не опровергнуть его любой ценой.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.querySelectorAll('.aeq').forEach(function(s){
+    if(s.dataset.ready) return; s.dataset.ready=1;
+    /* сдвигаем список вопросов вниз ровно до верха карточки с телефоном */
+    var side=s.querySelector('.aeq-side'), card=s.querySelector('.aeq-card');
+    function align(){ if(!side||!card) return; var off=card.getBoundingClientRect().top-side.getBoundingClientRect().top; s.style.setProperty('--aeq-off',Math.max(0,Math.round(off))+'px'); }
+    align(); window.addEventListener('resize',align); window.addEventListener('load',align);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(align);
+    s.querySelectorAll('.aeq-q').forEach(function(b){
+      b.addEventListener('click',function(){
+        var it=b.parentNode, o=!it.classList.contains('open');
+        it.classList.toggle('open',o); b.setAttribute('aria-expanded',o);
+      });
+    });
+  });
+})();
+</script>

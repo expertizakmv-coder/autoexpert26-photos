@@ -1,0 +1,96 @@
+<!-- ═══ HEAD СТРАНИЦЫ · РЕЦЕНЗИЯ ═══
+     /recenziya-na-sudebnuyu-ekspertizu
+     Вставить: Настройки страницы → Дополнительно → «HTML-код для вставки внутрь head» (только этой страницы).
+     Заменить ВСЁ, что там сейчас.
+     ЦВЕТ СТРАНИЦЫ — только блок 0 (сине-лиловый, как слайд «Рецензия на экспертизу» на главной). Остальное берёт цвет оттуда.
+     Блок 5 перекрашивает общие блоки (метки ситуаций, практика осмотров, выезд, регалии эксперта, заявка, отзывы, адрес СТО) в цвет страницы. -->
+<style>
+/* ---------- 0. ЦВЕТ СТРАНИЦЫ — как слайд «Рецензия на экспертизу» на главной ---------- */
+html:root{
+  --svc-t:#2F3550;            /* тёмный цвет слайда: херо, шапка, подложка под скруглением */
+  --svc-e:#6E78B0;            /* светлый цвет слайда: блик градиента */
+  --ae-accent:#434C78;        /* кнопки, номера шагов, иконки */
+  --ae-accent-hover:#2F3550;
+  --ae-grad:radial-gradient(120% 140% at 85% 0%,#6E78B0 0%,#434C78 45%,#1D2135 100%); /* тёмные плашки */
+  --svc-soft:#CDD1E8;         /* подписи на тёмных плашках */
+  --svc-soft2:#DFE2F1;        /* текст на тёмных плашках */
+  --svc-shadow:rgba(29,33,53,.12);
+}
+
+/* ---------- 00. Второй блок наезжает на херо на 32 px: скруглённый верх, за углами — само херо (фото и цвет) ---------- */
+html body .t-rec:has(section.hbs) + .t-rec{position:relative;z-index:2;margin-top:-32px;background:transparent}
+html body .t-rec:has(section.hbs) + .t-rec section{border-radius:32px 32px 0 0}
+@media (max-width:959px){
+  html body .t-rec:has(section.hbs) + .t-rec{margin-top:0;background:var(--svc-t)}
+  html body .t-rec:has(section.hbs) + .t-rec section{border-radius:24px 24px 0 0}
+}
+
+/* ---------- 1. «Когда нужна рецензия» (.us) — светлый фон ---------- */
+html body section.us{background:#EEF4F4!important}
+html body .us .us-card,
+html body .us .us-cta{background:#fff!important;border-color:transparent!important}
+html body .us .us-card:hover{box-shadow:0 14px 34px var(--svc-shadow)!important}
+
+/* ---------- 2. «Как проходит» (.hp) — белый фон, светлые карточки ---------- */
+html body section.hp{background:#fff!important}
+html body .hp .hp-steps li,
+html body .hp .hp-box,
+html body .hp .hp-doc{background:#EEF4F4!important;border-color:transparent!important}
+html body .hp .hp-doc:hover{box-shadow:0 14px 34px var(--svc-shadow)!important}
+html body .hp .hp-n{background:var(--ae-accent)!important;color:#fff!important}
+html body .hp .hp-steps li:not(:last-child):after{background:var(--ae-accent)!important}
+html body .hp .hp-fmt{border-color:var(--ae-accent)!important;color:var(--ae-accent)!important;background:#fff}
+
+/* ---------- 3. «Стоимость» (.pr) — белый фон, основной тариф тёмный ---------- */
+html body section.pr{background:#fff!important}
+html body .pr .pr-card,
+html body .pr .pr-slim{background:#EEF4F4!important;border-color:transparent!important}
+html body .pr .pr-card .pr-feat svg{background:#fff!important;stroke:var(--ae-accent)!important}
+html body .pr .pr-meta{border-color:#E3EAEA!important}
+/* первый тариф — «Письменная рецензия» */
+html body .pr .pr-card:first-child{background:var(--ae-grad)!important;color:#fff}
+html body .pr .pr-card:first-child :is(.pr-name,.pr-price,.pr-feat li,.pr-meta span){color:#fff!important}
+html body .pr .pr-card:first-child :is(.pr-price small,.pr-meta i){color:var(--svc-soft)!important}
+html body .pr .pr-card:first-child .pr-chip{color:#fff!important;border-color:rgba(255,255,255,.35)!important}
+html body .pr .pr-card:first-child .pr-desc{color:var(--svc-soft2)!important;border-color:rgba(255,255,255,.16)!important}
+html body .pr .pr-card:first-child .pr-meta{border-color:rgba(255,255,255,.16)!important}
+html body .pr .pr-card:first-child .pr-feat svg{background:rgba(255,255,255,.14)!important;stroke:#fff!important}
+html body .pr .pr-card:first-child .aex-btn{background:#fff!important;border-color:#fff!important;color:var(--ae-accent)!important}
+html body .pr .pr-card:first-child .aex-btn:hover{background:#EEF4F4!important;border-color:#EEF4F4!important}
+
+/* ---------- 5. Сведение цветов: общие блоки — в цвет страницы ---------- */
+/* «Ситуации» (.us) — метки карточек */
+html body .us .us-chip{background:color-mix(in srgb,var(--svc-e) 16%,#fff)!important;color:var(--svc-t)!important}
+/* «Практика осмотров» (.owl) — плашка с цифрами */
+html body .owl .owl-card{background:var(--ae-grad)!important}
+/* «Отзывы» (.rv) — аватары и метки */
+html body .rv :is(.rv-av,.rv-tag){background:var(--ae-bg,#EEF4F4)!important;color:var(--svc-t)!important}
+/* «Выезд по СКФО» (.vz) — кнопки, выбранные даты, город-база, подписи */
+html body .vz :is(.vz-go,.vz-day.on,.vz-chip.on){background:var(--ae-accent)!important;border-color:var(--ae-accent)!important}
+html body .vz .vz-go:hover{background:var(--ae-accent-hover)!important}
+html body .vz :is(p.vz-r,em){color:var(--ae-accent)!important;border-color:var(--ae-accent)!important}
+html body .vz .vz-rg li:before{background:var(--ae-accent)!important}
+html body .vz .vz-cty.base .vz-pill{fill:var(--ae-accent)!important}
+/* «Об эксперте» (.ox) — тёмная карточка регалий под фото */
+html body section.ox#expert .ox-reg{background:var(--ae-grad)!important}
+html body section.ox#expert .ox-reg .ox-badge span{color:var(--svc-soft2)!important}
+html body section.ox#expert .ox-reg .ox-stats span{color:var(--svc-soft)!important}
+/* «Не уверены, какая экспертиза нужна?» (.aec) — значок города на тёмной плашке */
+html body section.aec#zayavka .aec-card .aec-geo svg{fill:var(--svc-soft)!important}
+/* подписи и текст на тёмных плашках (заявка, «Где проводится осмотр», практика осмотров) — в оттенок страницы вместо зелёно-серого */
+html body section.aec#zayavka .aec-card :is(.aec-label,.aec-geo,.aec-alt){color:var(--svc-soft)!important}
+html body section.og .og-k{color:var(--svc-soft)!important}
+html body section.og .og-sub{color:var(--svc-soft2)!important}
+html body section.owl .owl-card em{color:var(--svc-soft2)!important}
+/* «Адрес СТО» (.mk) — подложка карты и метка */
+html body .mk .mk-box{background:color-mix(in srgb,var(--svc-e) 14%,#E3EAEA)!important}
+html body .mk .mk-map{background:#E3EAEA!important}
+html body .mk .mk-chip{background:color-mix(in srgb,var(--svc-e) 16%,#fff)!important;color:var(--svc-t)!important}
+html body .mk .mk-links{border-color:#E3EAEA!important}
+
+/* ---------- 6. Мобильная: поля 20 px как на главной ---------- */
+@media (max-width:639px){
+  html body section.hp,
+  html body section.pr{padding-left:20px!important;padding-right:20px!important}
+}
+</style>

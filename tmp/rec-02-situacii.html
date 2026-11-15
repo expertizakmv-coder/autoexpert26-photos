@@ -1,0 +1,303 @@
+<!-- ═══ РЕЦЕНЗИЯ · 02 · Когда нужна рецензия (.us#situacii) ═══
+     Суть: ситуации, в которых заказывают рецензию: судебная экспертиза не в вашу пользу, завышенный ущерб, страховая,
+     обстоятельства ДТП, дилер, автосервис, противоречащие заключения, повторная экспертиза, допрос эксперта.
+     В карточке: ситуация → проблема → что сделаю. Под сеткой — плашка «Не нашли свою ситуацию?» с кнопкой WhatsApp.
+     Скорость и «техническую возможность предотвратить ДТП» не упоминаем — эти расчёты не делаю.
+     Вкладки сверху — как на страницах ущерба и VIN: «Стоимость» и «Что входит» подменяют содержимое копией #stoimost / #sostav,
+     «Регионы» — прокрутка к блоку #vyezd. Цвет — из head страницы.
+     Правки: текст карточки — .us-name / .us-desc / <li>. -->
+<style>
+section.us{font-family:'PT Serif',Georgia,serif;color:#1A1F1F;background:#EEF4F4;padding:80px 20px;box-sizing:border-box}
+.us *{box-sizing:border-box}
+.us-wrap{max-width:1200px;margin:0 auto}
+.us-label{display:flex;align-items:center;gap:12px;margin:0 0 12px;font:13px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5D6B6B}
+.us-label:before{content:"";width:28px;height:2px;background:#FFD600;flex:none}
+html body .us .us-title{margin:0 0 12px;font-family:'PT Serif',Georgia,serif;font-size:36px;line-height:1.2;font-weight:400;color:#1A1F1F}
+.us-lead{margin:0 0 40px;max-width:760px;font-size:17px;line-height:1.6;color:#3D4848}
+.us-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.us-card{display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:26px 24px 24px;transition:transform .25s ease,box-shadow .25s ease}
+.us-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px var(--svc-shadow,rgba(15,43,46,.10))}
+.us-chip{align-self:flex-start;margin:0 0 16px;padding:5px 10px;border-radius:6px;background:#FFF3B0;color:#333;font:700 13px/1.2 Arial,sans-serif}
+html body .us .us-name{margin:0 0 8px;font-family:'PT Serif',Georgia,serif;font-size:21px;line-height:1.25;font-weight:700;color:#1A1F1F}
+.us-desc{margin:0 0 18px;font-size:15px;line-height:1.5;color:#3D4848}
+.us-do{margin-top:auto;padding-top:16px;border-top:1px solid #E3EAEA}
+.us-do-label{display:block;margin:0 0 10px;font:12px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--ae-accent,#1F5458)}
+.us-do ul{list-style:none;margin:0;padding:0}
+.us-do li{position:relative;margin:0 0 7px;padding-left:20px;font-size:15px;line-height:1.4;color:#1A1F1F}
+.us-do li:last-child{margin-bottom:0}
+.us-do li:before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;border-radius:1px;background:var(--ae-accent,#1F5458)}
+/* 9-я ячейка: не нашли свою ситуацию */
+.us-cta{display:flex;flex-direction:column;justify-content:space-between;gap:20px;border-radius:20px;padding:26px 24px 24px;background:var(--ae-grad,radial-gradient(120% 140% at 85% 0%,#2F7A80 0%,#1F5458 45%,#0F2B2E 100%));color:#fff}
+html body .us .us-cta{background:var(--ae-grad)!important}
+.us-cta p{margin:0;font-size:21px;line-height:1.3;font-weight:700;color:#fff}
+.us-cta small{display:block;margin-top:10px;font:400 14.5px/1.5 Arial,sans-serif;color:rgba(255,255,255,.8)}
+html body .us .us-cta .aex-btn{align-self:flex-start;background:#fff!important;border-color:#fff!important;color:#1A1F1F!important}
+html body .us .us-cta .aex-btn:hover{background:#EEF4F4!important;border-color:#EEF4F4!important}
+.us-cta .aex-btn svg{fill:#25D366}
+/* плашка «Не нашли свою ситуацию?» — на всю ширину под сеткой (на телефоне — карточка в ленте) */
+@media (min-width:640px){
+  .us-cta{grid-column:1 / -1;flex-direction:row;align-items:center;gap:32px}
+  html body .us .us-cta .aex-btn{align-self:center;flex:none}
+}
+.us-hint{display:none;margin:12px 0 0;text-align:center;font:13px Arial,sans-serif;color:#8A9696}
+@media (max-width:1199px){.us-grid{gap:16px}.us-card,.us-cta{padding:22px 20px 20px}html body .us .us-name{font-size:19px}}
+@media (max-width:959px){section.us{padding:60px 20px}html body .us .us-title{font-size:30px}.us-lead{margin-bottom:28px}.us-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:639px){
+  section.us{padding:48px 0}
+  .us-label,html body .us .us-title,.us-lead{padding:0 20px}
+  html body .us .us-title{font-size:26px}
+  .us-lead{font-size:16px}
+  .us-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:4px 20px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .us-grid::-webkit-scrollbar{display:none}
+  .us-card,.us-cta{flex:0 0 84%;scroll-snap-align:center}
+  .us-card:hover{transform:none;box-shadow:none}
+  .us-hint{display:block}
+  html body .us .us-cta .aex-btn{align-self:stretch}
+}
+/* вкладки-якоря: ряд вкладок как в браузере — тёмные полупрозрачные, при наведении светлые и слитые с блоком; на телефоне скрыты */
+section.us{position:relative}
+.us-tabs{position:absolute;left:0;right:0;bottom:100%;pointer-events:none}
+.us-tabs-in{max-width:1440px;margin:0 auto;padding:0 120px;display:flex;justify-content:flex-end;gap:2px}
+@media (max-width:1199px){.us-tabs-in{padding:0 80px}}
+html body .us .us-tab{position:relative;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 18px;border-radius:12px 12px 0 0;background:rgba(10,28,30,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:rgba(255,255,255,.92)!important;font:600 13px system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;white-space:nowrap;pointer-events:auto;transition:background .2s,color .2s}
+.us-tab small{font:400 13px system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:inherit}
+.us-tab i{width:14px;height:14px;flex:none;border-radius:50%;background:rgba(255,255,255,.18);position:relative;transition:transform .2s,background .2s}
+.us-tab i:after{content:"";position:absolute;left:4.3px;top:3px;width:4px;height:4px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg)}
+.us-tab:before,.us-tab:after{content:"";position:absolute;bottom:0;width:14px;height:14px;pointer-events:none;opacity:0;transition:opacity .2s}
+.us-tab:before{left:-14px;background:radial-gradient(circle at 0 0,transparent 13.5px,#EEF4F4 14px)}
+.us-tab:after{right:-14px;background:radial-gradient(circle at 100% 0,transparent 13.5px,#EEF4F4 14px)}
+/* без серой вспышки при нажатии на телефоне и без рамки фокуса от мыши */
+html body .us .us-tab{-webkit-tap-highlight-color:transparent;outline:0}
+/* наведение мышью на НЕвыбранную вкладку — только чуть светлеет, как стекло; только там, где есть мышь */
+@media (hover:hover){
+  html body .us .us-tab:not(.on):hover{background:rgba(255,255,255,.2);color:#fff!important}
+  .us-tab:not(.on):hover i{background:rgba(255,255,255,.3)}
+}
+/* фокус с клавиатуры — тонкая рамка, без смены цвета */
+html body .us .us-tab:not(.on):focus-visible{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+/* выбранная вкладка: светлая, слита с блоком; одинакова при наведении, нажатии и фокусе */
+html body .us .us-tab.on,html body .us .us-tab.on:hover,html body .us .us-tab.on:active,html body .us .us-tab.on:focus{z-index:1;background:#EEF4F4!important;color:var(--svc-t,#1B3E4A)!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;transition:none}
+.us-tab.on:before,.us-tab.on:after{opacity:1;transition:none}
+/* вкладки-переключатели — кнопки, а не якоря: иначе Тильда сама прокручивает страницу к блоку */
+html body .us button.us-tab{margin:0;border:0;cursor:pointer;-webkit-appearance:none;appearance:none}
+html body .us .us-tab.on{cursor:default}
+/* подмена содержимого блока по вкладке */
+.us-stage{position:relative;transition:height .45s ease}
+.us-pane{transition:opacity .28s ease,filter .28s ease,transform .28s ease}
+.us-pane.out{opacity:0;filter:blur(8px);transform:translateY(6px)}
+.us-pane[hidden]{display:none!important}
+/* копия чужого блока: без своего фона, отступов и скругления — живёт внутри этого блока */
+html body #situacii section.us-clone{padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;min-height:0!important}
+html body #situacii section.us-clone:before,html body #situacii section.us-clone:after{display:none!important}
+/* в копиях: светлые карточки цен — белые (иначе сливаются с фоном блока), подложка «Что входит» — без своего фона и отступов */
+html body #situacii .us-clone .pr-card{background-color:#fff!important}
+html body #situacii .us-clone .sx-w{background:transparent!important;padding:0!important;max-width:none!important}
+@media (prefers-reduced-motion:reduce){.us-stage,.us-pane{transition:none}}
+@media (hover:hover){.us-tab:hover i{transform:translateY(2px)}}
+.us-tab .s{display:none}
+/* телефон и планшет: те же вкладки, компактные — короткие подписи, без стрелки */
+@media (max-width:959px){
+  /* первая вкладка «Ситуация» — от самого левого края экрана, левый бок прямой; у блока левый верхний угол прямой */
+  .us-tabs-in{padding:0 12px 0 0;justify-content:flex-start;gap:2px;overflow-x:auto;scrollbar-width:none}
+  .us-tabs-in::-webkit-scrollbar{display:none}
+  html body .us .us-tab{flex:none;height:34px;padding:0 10px;border-radius:10px 10px 0 0;font-size:12px}
+  .us-tab .l,.us-tab i{display:none}
+  .us-tab .s{display:inline}
+  .us-tab:before,.us-tab:after{width:10px;height:10px}
+  .us-tab:before{left:-10px;background:radial-gradient(circle at 0 0,transparent 9.5px,#EEF4F4 10px)}
+  .us-tab:after{right:-10px;background:radial-gradient(circle at 100% 0,transparent 9.5px,#EEF4F4 10px)}
+  /* место под вкладки над блоком — чтобы не наезжали на подпись херо; фон там — цвет херо */
+  html body section.us#situacii{margin-top:40px;border-top-left-radius:0!important}
+  html body .us .us-tab:first-child{border-radius:0 10px 0 0;padding-left:20px}
+  .us-tab:first-child:before{display:none}
+  /* копии на телефоне — с боковыми полями, как у остальных блоков */
+  html body #situacii section.us-clone{padding:0 20px!important}
+}
+/* узкие телефоны (360 px): вкладки чуть плотнее, чтобы все четыре влезли */
+@media (max-width:374px){
+  html body .us .us-tab{padding:0 8px;font-size:11.5px}
+}
+</style>
+
+<section class="us" id="situacii">
+  <nav class="us-tabs" aria-label="Разделы страницы"><div class="us-tabs-in">
+    <button class="us-tab on" type="button" data-pane="situacii" aria-current="true"><span class="l">Ваша ситуация</span><span class="s">Ситуация</span></button>
+    <button class="us-tab" type="button" data-pane="stoimost"><span class="l">Стоимость рецензии</span><span class="s">Стоимость</span></button>
+    <button class="us-tab" type="button" data-pane="sostav"><span class="l">Что проверяю в&nbsp;заключении</span><span class="s">Что проверяю</span></button>
+    <a class="us-tab" href="#vyezd"><span class="l">Работаю по&nbsp;СКФО</span><span class="s">Регионы</span><i></i></a>
+  </div></nav>
+  <div class="us-stage">
+  <div class="us-wrap us-pane">
+    <p class="us-label">Ваша ситуация</p>
+    <h2 class="us-title">Когда нужна рецензия на&nbsp;заключение эксперта</h2>
+    <p class="us-lead">Если выводы эксперта вызывают сомнения, важно понять, в&nbsp;чём именно ошибка и&nbsp;может&nbsp;ли она повлиять на&nbsp;итог. Найдите свою ситуацию.</p>
+
+    <div class="us-grid">
+      <article class="us-card">
+        <span class="us-chip">Суд</span>
+        <h3 class="us-name">Судебная экспертиза оказалась не&nbsp;в&nbsp;вашу пользу</h3>
+        <p class="us-desc">Выводы эксперта могут решить исход дела, а&nbsp;одних возражений стороны суду недостаточно&nbsp;— нужны аргументы специалиста.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Проверю исследовательскую часть и&nbsp;методику</li>
+          <li>Найду, где выводы не&nbsp;следуют из&nbsp;исследования</li>
+          <li>Письменная рецензия для приобщения к&nbsp;делу</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Ущерб</span>
+        <h3 class="us-name">С&nbsp;вас требуют завышенную сумму ущерба</h3>
+        <p class="us-desc">В&nbsp;расчёт включены лишние детали, необоснованная замена вместо ремонта или завышенные цены.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Сверю перечень повреждений с&nbsp;фото и&nbsp;актом осмотра</li>
+          <li>Проверю ремонтные воздействия и&nbsp;стоимость</li>
+          <li>Покажу, на&nbsp;сколько расчёт расходится с&nbsp;реальным</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Страховая</span>
+        <h3 class="us-name">Страховая занизила выплату или отказала</h3>
+        <p class="us-desc">Калькуляция страховой не&nbsp;учитывает часть повреждений, либо в&nbsp;выплате отказали со&nbsp;ссылкой на&nbsp;несоответствие повреждений.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Проверю калькуляцию и&nbsp;применённую методику</li>
+          <li>Оценю технические основания отказа</li>
+          <li>Аргументы для претензии и&nbsp;финансового уполномоченного</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">ДТП</span>
+        <h3 class="us-name">Не&nbsp;согласны с&nbsp;выводами об&nbsp;обстоятельствах ДТП</h3>
+        <p class="us-desc">Эксперт сделал вывод о&nbsp;механизме столкновения или соответствии повреждений, который не&nbsp;подтверждается материалами.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Проверю исходные данные и&nbsp;схему ДТП</li>
+          <li>Сопоставление следов по&nbsp;высоте и&nbsp;форме</li>
+          <li>Обоснованность вывода о&nbsp;механизме ДТП</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Дилер</span>
+        <h3 class="us-name">Спор с&nbsp;дилером или продавцом автомобиля</h3>
+        <p class="us-desc">Причину поломки двигателя, КПП или другого агрегата списали на&nbsp;эксплуатацию&nbsp;— или, наоборот, на&nbsp;производственный дефект.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Проверю, установлена&nbsp;ли причина неисправности</li>
+          <li>Достаточно&nbsp;ли диагностики и&nbsp;дефектовки</li>
+          <li>Доказана&nbsp;ли причинная связь</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Автосервис</span>
+        <h3 class="us-name">Спор с&nbsp;автосервисом о&nbsp;качестве ремонта</h3>
+        <p class="us-desc">Экспертиза по&nbsp;кузовному ремонту, окраске или ТО&nbsp;— выводы не&nbsp;совпадают с&nbsp;тем, что видно на&nbsp;автомобиле.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Проверю выводы о&nbsp;технологии ремонта</li>
+          <li>Дефекты ЛКП и&nbsp;замеры толщины покрытия</li>
+          <li>Причины повторных неисправностей</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Два заключения</span>
+        <h3 class="us-name">Заключения экспертов противоречат друг другу</h3>
+        <p class="us-desc">У&nbsp;сторон разные экспертизы с&nbsp;разными выводами, и&nbsp;суду нужно понять, какой из&nbsp;них верить.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Сопоставлю исходные данные и&nbsp;методы</li>
+          <li>Найду технические причины расхождений</li>
+          <li>Покажу, какое исследование полнее</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Повторная экспертиза</span>
+        <h3 class="us-name">Нужно обосновать повторную экспертизу</h3>
+        <p class="us-desc">Суд назначает повторную экспертизу при сомнениях в&nbsp;обоснованности заключения&nbsp;— сомнения нужно показать.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Найду существенные недостатки исследования</li>
+          <li>Аргументы для ходатайства</li>
+          <li>Вопросы для новой экспертизы</li>
+        </ul></div>
+      </article>
+
+      <article class="us-card">
+        <span class="us-chip">Допрос эксперта</span>
+        <h3 class="us-name">Предстоит допрос судебного эксперта</h3>
+        <p class="us-desc">Эксперта вызвали в&nbsp;суд для пояснений&nbsp;— важно задать вопросы, на&nbsp;которые нельзя ответить общими словами.</p>
+        <div class="us-do"><span class="us-do-label">Что сделаю</span><ul>
+          <li>Разберу спорные места заключения</li>
+          <li>Сформулирую технические вопросы эксперту</li>
+          <li>По&nbsp;методике, расчётам и&nbsp;выводам</li>
+        </ul></div>
+      </article>
+
+      <div class="us-cta">
+        <p>Не&nbsp;нашли свою ситуацию?<small>Пришлите заключение и&nbsp;коротко опишите спор&nbsp;— скажу, что можно проверить и&nbsp;сколько это стоит.</small></p>
+        <a class="aex-btn" href="https://wa.me/79286522288?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D1%80%D0%B5%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%B0.%20%D0%A0%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D1%83%20%D0%BE%20%D1%81%D0%B8%D1%82%D1%83%D0%B0%D1%86%D0%B8%D0%B8." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Рассказать о&nbsp;ситуации</a>
+      </div>
+    </div>
+    <p class="us-hint">← Листайте карточки →</p>
+  </div>
+  <div class="us-wrap us-pane us-slot" hidden></div>
+  </div>
+</section>
+
+<script>
+/* вкладки: «Стоимость» и «Что входит» подменяют содержимое блока копией нужного блока,
+   «Ваша ситуация» возвращает карточки, остальные — плавный переход к блоку с учётом шапки */
+(function(){
+  var sec=document.getElementById('situacii'); if(!sec||sec.dataset.tabs) return; sec.dataset.tabs=1;
+  var tabs=[].slice.call(sec.querySelectorAll('.us-tab')),
+      stage=sec.querySelector('.us-stage'),
+      home=stage.querySelector('.us-pane:not(.us-slot)'),
+      slot=stage.querySelector('.us-slot'),
+      cache={}, cur='situacii', busy=false,
+      still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function headerOff(){ var h=document.querySelector('.aeh'); return (h?h.offsetHeight:64)+16; }
+
+  /* копия блока: без id, H2 превращается в обычный абзац с тем же классом */
+  function copyOf(id){
+    if(cache[id]) return cache[id];
+    var src=document.getElementById(id); if(!src) return null;
+    var c=src.cloneNode(true);
+    c.removeAttribute('id'); c.classList.add('us-clone');
+    [].forEach.call(c.querySelectorAll('[id]'),function(e){ e.removeAttribute('id'); });
+    [].forEach.call(c.querySelectorAll('h2'),function(h){
+      var p=document.createElement('p'); p.className=h.className; p.innerHTML=h.innerHTML; h.parentNode.replaceChild(p,h);
+    });
+    return cache[id]=c;
+  }
+
+  function show(name){
+    if(busy||name===cur) return;
+    var next=(name==='situacii')?home:slot;
+    if(next===slot && !copyOf(name)) return;
+    busy=true;
+    tabs.forEach(function(t){ var on=t.dataset.pane===name; t.classList.toggle('on',on); if(on) t.setAttribute('aria-current','true'); else t.removeAttribute('aria-current'); });
+    var prev=(cur==='situacii')?home:slot;
+    stage.style.height=stage.offsetHeight+'px';
+    prev.classList.add('out');
+    setTimeout(function(){
+      prev.hidden=true;
+      if(next===slot){ slot.innerHTML=''; slot.appendChild(copyOf(name)); }
+      next.classList.add('out'); next.hidden=false;
+      stage.style.height=next.offsetHeight+'px';
+      /* если верх блока ушёл за экран — возвращаем его под шапку */
+      var top=sec.getBoundingClientRect().top;
+      if(top<0) window.scrollTo({top:top+window.pageYOffset-headerOff(),behavior:still?'auto':'smooth'});
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ next.classList.remove('out'); }); });
+      setTimeout(function(){ stage.style.height=''; busy=false; }, still?0:460);
+      cur=name;
+    }, still?0:280);
+  }
+
+  tabs.forEach(function(a){ a.addEventListener('click',function(e){
+    var pane=a.dataset.pane;
+    if(pane){ show(pane); return; }
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return; e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-headerOff(),behavior:'smooth'});
+  }); });
+})();
+</script>

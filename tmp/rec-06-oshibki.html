@@ -1,0 +1,98 @@
+<!-- ═══ РЕЦЕНЗИЯ · 06 · Какие ошибки находит рецензия (.oe#oshibki) ═══
+     Суть: 6 типов нарушений в заключениях + цветная плашка с числовым примером (износ: 380 000 → 260 000 ₽).
+     Ниже — раскрытие «Ещё примеры» (трасология, двигатель, VIN, рыночная стоимость). Примеры условные — подпись обязательна,
+     пока нет реального кейса рецензии. Стоит на месте интерактивного разбора шаблона. Цвет — из head страницы.
+     Правки: типы — .oe-t, пример — .oe-c, доп. примеры — <div class="oe-x"> в раскрытии. -->
+<style>
+section.oe{background:#fff;padding:0 20px 80px;font-family:'PT Serif',Georgia,serif;color:#1A1F1F;box-sizing:border-box}
+.oe *{box-sizing:border-box}
+.oe-w{max-width:1200px;margin:0 auto}
+.oe-k{display:flex;align-items:center;gap:12px;margin:0 0 12px;font:13px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5D6B6B}
+.oe-k:before{content:"";width:28px;height:2px;background:#FFD600;flex:none}
+html body .oe .oe-h{margin:0 0 12px;max-width:900px;font-family:'PT Serif',Georgia,serif;font-size:36px;line-height:1.2;font-weight:400;color:#1A1F1F}
+.oe-lead{margin:0 0 36px;max-width:780px;font-size:17px;line-height:1.6;color:#3D4848}
+.oe-g{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.oe-types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.oe-t{padding:20px 20px 18px;border-radius:18px;background:#EEF4F4}
+.oe-t b{display:block;margin:0 0 6px;font-size:17px;line-height:1.3;font-weight:700}
+.oe-t p{margin:0;font:14px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#3D4848}
+/* цветная плашка с примером */
+.oe-c{display:flex;flex-direction:column;padding:30px 30px 26px;border-radius:24px;color:#fff;background:radial-gradient(420px 420px at 0 0,var(--svc-e,#6E78B0),rgba(0,0,0,0)),var(--svc-t,#2F3550)}
+.oe-c .tg{margin:0 0 10px;font:11.5px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+html body .oe .oe-c h3{margin:0 0 18px;font-family:'PT Serif',Georgia,serif;font-size:24px;line-height:1.25;font-weight:400;color:#fff}
+.oe-r{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.16);font:15px/1.4 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:rgba(255,255,255,.85)}
+.oe-r b{font-weight:700;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.oe-r.d{border-bottom:0;padding-top:14px}
+.oe-r.d b{font:400 32px/1 'PT Serif',Georgia,serif}
+.oe-c p{margin:14px 0 0;font:14px/1.55 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:rgba(255,255,255,.78)}
+/* ещё примеры */
+.oe-more{margin-top:20px;border-radius:18px;background:#EEF4F4}
+.oe-more>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer;font:700 16px 'PT Serif',Georgia,serif;color:var(--svc-t,#2F3550);-webkit-tap-highlight-color:transparent}
+.oe-more>summary::-webkit-details-marker{display:none}
+.oe-more>summary:after{content:"";flex:none;width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .25s}
+.oe-more[open]>summary:after{transform:rotate(-135deg) translateY(-2px)}
+.oe-xs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 22px 22px}
+.oe-x{padding:18px 20px;border-radius:14px;background:#fff}
+.oe-x b{display:block;margin:0 0 6px;font-size:16px;line-height:1.3}
+.oe-x p{margin:0;font:14px/1.55 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#3D4848}
+.oe-note{margin:14px 0 0;font:13px/1.5 Arial,sans-serif;color:#5D6B6B}
+@media (max-width:1100px){.oe-g{grid-template-columns:1fr}}
+@media (max-width:959px){
+  section.oe{padding:0 20px 60px}
+  html body .oe .oe-h{font-size:28px}
+  .oe-lead{font-size:16px;margin-bottom:24px}
+}
+@media (max-width:639px){
+  .oe-types,.oe-xs{grid-template-columns:1fr}
+  .oe-types{gap:8px}
+  .oe-t{padding:16px 18px}
+  .oe-c{padding:24px 20px 20px;border-radius:20px}
+  html body .oe .oe-c h3{font-size:21px}
+  .oe-r{font-size:14px}
+  .oe-r.d b{font-size:26px}
+  .oe-more>summary{padding:16px 18px}
+  .oe-xs{padding:0 12px 12px;gap:8px}
+  .oe-x{padding:16px}
+}
+</style>
+
+<section class="oe" id="oshibki">
+  <div class="oe-w">
+    <p class="oe-k">Ошибки в экспертизах</p>
+    <h2 class="oe-h">Какие ошибки эксперта находит рецензия</h2>
+    <p class="oe-lead">Не&nbsp;всякая неточность ставит заключение под сомнение. Важны недостатки, которые меняют расчёт, установленные обстоятельства или итоговый вывод&nbsp;— их и&nbsp;ищу.</p>
+
+    <div class="oe-g">
+      <div class="oe-types">
+        <div class="oe-t"><b>Методические</b><p>Неподходящая методика, неверные параметры или нарушены условия её применения.</p></div>
+        <div class="oe-t"><b>В&nbsp;исходных данных</b><p>Неподтверждённые сведения, не&nbsp;учтены документы дела, ошибка в&nbsp;идентификации автомобиля.</p></div>
+        <div class="oe-t"><b>Расчётные</b><p>Формулы, коэффициенты, единицы измерения, арифметика, цены запчастей и&nbsp;нормо-часов.</p></div>
+        <div class="oe-t"><b>Неполнота исследования</b><p>Нет осмотра, замеров, диагностики или сопоставления там, где без них вывод не&nbsp;сделать.</p></div>
+        <div class="oe-t"><b>Необоснованные выводы</b><p>Предположение вместо установленного факта, не&nbsp;доказана причинная связь.</p></div>
+        <div class="oe-t"><b>Оформление и&nbsp;компетенция</b><p>Нет обязательных сведений и&nbsp;приложений, специальность эксперта не&nbsp;соответствует вопросам.</p></div>
+      </div>
+
+      <div class="oe-c">
+        <p class="tg">Как одна ошибка меняет итог</p>
+        <h3>Износ в&nbsp;расчёте ущерба</h3>
+        <div class="oe-r">Запчасти<b>300&nbsp;000&nbsp;₽</b></div>
+        <div class="oe-r">Работы и&nbsp;материалы<b>80&nbsp;000&nbsp;₽</b></div>
+        <div class="oe-r">Итого без износа<b>380&nbsp;000&nbsp;₽</b></div>
+        <div class="oe-r">С&nbsp;износом деталей 40%<b>260&nbsp;000&nbsp;₽</b></div>
+        <div class="oe-r d">Разница<b>120&nbsp;000&nbsp;₽</b></div>
+        <p>Проверяю не&nbsp;только арифметику, но&nbsp;и&nbsp;то, применим&nbsp;ли износ к&nbsp;вопросам суда и&nbsp;вашему спору. Расчёт с&nbsp;износом не&nbsp;всегда ошибочен&nbsp;— всё зависит от&nbsp;того, кто и&nbsp;по&nbsp;какому основанию возмещает ущерб.</p>
+      </div>
+    </div>
+
+    <details class="oe-more">
+      <summary>Ещё примеры ошибок по&nbsp;другим экспертизам</summary>
+      <div class="oe-xs">
+        <div class="oe-x"><b>Соответствие повреждений ДТП</b><p>Вывод о&nbsp;том, что повреждения не&nbsp;могли образоваться в&nbsp;этом ДТП, сделан без сопоставления следов по&nbsp;высоте и&nbsp;форме и&nbsp;без осмотра второго автомобиля.</p></div>
+        <div class="oe-x"><b>Причина поломки двигателя</b><p>Неисправность объяснена несвоевременным ТО без проверки системы смазки и&nbsp;других причин. Сам факт нарушения регламента не&nbsp;доказывает, что поломка из-за него.</p></div>
+        <div class="oe-x"><b>Исследование VIN</b><p>Повреждение маркировочной площадки названо изменением номера без анализа коррозии и&nbsp;следов кузовного ремонта. Исследования недостаточно для такого вывода.</p></div>
+        <div class="oe-x"><b>Рыночная стоимость</b><p>Взяты аналоги другой комплектации и&nbsp;с&nbsp;сильно отличающимся пробегом, а&nbsp;корректировки не&nbsp;обоснованы&nbsp;— итоговая стоимость искажена.</p></div>
+      </div>
+    </details>
+    <p class="oe-note">Примеры условные&nbsp;— они показывают, как проверяю заключение, а&nbsp;не&nbsp;описывают конкретные дела.</p>
+  </div>
+</section>

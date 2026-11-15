@@ -1,0 +1,106 @@
+<!-- ═══ РЕЦЕНЗИЯ · 08 · Разборы экспертиз из практики (.ae-cases#kejsy-recenziya) ═══
+     Суть: реальные экспертизы с сайта по направлениям, которые рецензирую (ущерб без износа, ущерб с виновника,
+     повторная экспертиза DPF, качество окраски). Это не «рецензии из практики» — так и подписано.
+     Когда появится разбор настоящей рецензии — поставить его первой карточкой.
+     Тот же блок кейсов, что на страницах ущерба и VIN. Правки: карточка — один <a class="ae-case">. -->
+<style>
+.ae-cases{--ac-ink:#111;--ac-muted:#6B7280;--ac-yellow:#FFD600;font-family:'PT Serif',Georgia,serif;color:var(--ac-ink);background:#E9E9E5;padding:80px 20px}
+.ae-cases *{box-sizing:border-box}
+.ae-cases__wrap{max-width:1200px;margin:0 auto}
+.ae-cases__head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px}
+.ae-cases__label{display:flex;align-items:center;gap:12px;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac-muted);margin:0 0 12px}
+.ae-cases__label:before{content:"";width:28px;height:2px;background:var(--ac-yellow)}
+.ae-cases__title{font-family:'PT Serif',Georgia,serif;font-size:36px;line-height:1.2;font-weight:400;color:var(--ac-ink);margin:0}
+.ae-cases__sub{margin:12px 0 0;max-width:640px;font-size:16px;line-height:1.55;color:#4B5563}
+.ae-cases a.ae-cases__all{flex-shrink:0;font-size:16px;line-height:1.5;color:var(--ac-ink);text-decoration:none;border-bottom:2px solid var(--ac-yellow);padding-bottom:3px}
+.ae-cases__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.ae-cases a.ae-case{display:flex;flex-direction:column;min-width:0;background:#F5F5F2;border:1px solid #DDDDD7;border-radius:20px;overflow:hidden;color:var(--ac-ink);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.ae-case__photo{aspect-ratio:4 / 3;overflow:hidden;background:#DDDDD7}
+.ae-case__photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.ae-case__body{display:flex;flex-direction:column;flex:1;padding:24px 22px 22px}
+.ae-case__model{font-family:Arial,sans-serif;font-size:12px;line-height:1.4;letter-spacing:.06em;text-transform:uppercase;color:var(--ac-muted);margin:0 0 10px}
+.ae-cases .ae-case__title{font-family:'PT Serif',Georgia,serif;font-size:22px;line-height:1.3;font-weight:700;color:var(--ac-ink);margin:0 0 12px}
+.ae-cases .ae-case__text{font-size:15px;line-height:1.6;color:#4B5563;margin:0 0 24px}
+.ae-case__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid #DDDDD7}
+.ae-case__read{font-size:15px;font-weight:700;padding-bottom:3px;background:linear-gradient(#FFD600,#FFD600) left bottom / 0 3px no-repeat;transition:background-size .25s ease}
+.ae-case__arrow{display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex-shrink:0;border:1px solid #D4D4CE;border-radius:50%;font-family:Arial,sans-serif;font-size:18px;transition:background .25s ease,border-color .25s ease}
+.ae-cases a.ae-case:focus-visible,.ae-cases a.ae-cases__all:focus-visible{outline:2px solid var(--ac-ink);outline-offset:5px}
+.ae-cases__hint{display:none;font-family:Arial,sans-serif;font-size:12px;color:var(--ac-muted);text-align:center;margin:16px 20px 0}
+@media (hover:hover){
+  .ae-cases a.ae-case:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(17,24,39,.07)}
+  .ae-case:hover .ae-case__photo img{transform:scale(1.035)}
+  .ae-case:hover .ae-case__read{background-size:100% 3px}
+  .ae-case:hover .ae-case__arrow{background:#E4E4DF;border-color:#D4D4CE}
+}
+@media (max-width:1199px){.ae-cases__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ae-case__photo{aspect-ratio:16 / 10}}
+@media (max-width:959px){.ae-cases{padding:60px 20px}.ae-cases__title{font-size:30px}}
+@media (max-width:639px){
+  .ae-cases{padding:48px 0}
+  .ae-cases__head{display:block;padding:0 20px;margin-bottom:24px}
+  .ae-cases__title{font-size:26px}
+  .ae-cases__sub{font-size:15px}
+  .ae-cases a.ae-cases__all{display:inline-block;margin-top:18px;font-size:15px}
+  .ae-cases__grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .ae-cases__grid::-webkit-scrollbar{display:none}
+  .ae-cases a.ae-case{flex:0 0 86%;scroll-snap-align:center}
+  .ae-case__photo{aspect-ratio:4 / 3}
+  .ae-case__body{padding:22px 20px 20px}
+  .ae-case__read{background-size:100% 3px}
+  .ae-cases__hint{display:block}
+}
+@media (prefers-reduced-motion:reduce){.ae-cases a.ae-case,.ae-case__photo img,.ae-case__read,.ae-case__arrow{transition:none}}
+section.ae-cases{background:#DEDEDA!important}
+section.ae-cases a.ae-case{background:#ECECE7!important}
+</style>
+
+<section class="ae-cases" id="kejsy-recenziya">
+  <div class="ae-cases__wrap">
+    <div class="ae-cases__head">
+      <div>
+        <p class="ae-cases__label">Экспертная практика</p>
+        <h2 class="ae-cases__title">Разборы экспертиз из&nbsp;практики</h2>
+        <p class="ae-cases__sub">Мои экспертизы по&nbsp;спорным делам: на&nbsp;них видно, какие вопросы проверяю и&nbsp;в&nbsp;чужих заключениях.</p>
+      </div>
+      <a class="ae-cases__all" href="https://autoexpert26.ru/blog">Все кейсы и&nbsp;статьи&nbsp;→</a>
+    </div>
+    <div class="ae-cases__grid">
+      <a class="ae-case" href="https://autoexpert26.ru/expertiza-dpf-touareg">
+        <div class="ae-case__photo"><img src="https://static.tildacdn.com/tild3330-6132-4634-b166-356365336236/DSCN1733.webp" alt="Сажевый фильтр Volkswagen Touareg на исследовании" loading="lazy" decoding="async" width="640" height="480"></div>
+        <div class="ae-case__body">
+          <p class="ae-case__model">Volkswagen Touareg</p>
+          <h3 class="ae-case__title">Повторная экспертиза DPF в&nbsp;суде</h3>
+          <p class="ae-case__text">Повторная экспертиза по&nbsp;делу в&nbsp;суде: причина неисправности сажевого фильтра DPF.</p>
+          <div class="ae-case__bottom"><span class="ae-case__read">Читать разбор</span><span class="ae-case__arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+      <a class="ae-case" href="https://autoexpert26.ru/expertiza-ushcherba-bmw-540i">
+        <div class="ae-case__photo"><img src="https://static.tildacdn.com/tila6334-3034-4565-b066-376530353136/TC_04289.webp" alt="BMW 540i после ДТП на осмотре" loading="lazy" decoding="async" width="640" height="480"></div>
+        <div class="ae-case__body">
+          <p class="ae-case__model">BMW 540i</p>
+          <h3 class="ae-case__title">ОСАГО без учёта износа</h3>
+          <p class="ae-case__text">484&nbsp;500&nbsp;₽ без износа и&nbsp;300&nbsp;500&nbsp;₽ с&nbsp;износом: почему расчёты для спора различаются.</p>
+          <div class="ae-case__bottom"><span class="ae-case__read">Читать разбор</span><span class="ae-case__arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+      <a class="ae-case" href="https://autoexpert26.ru/expertiza-ushcherba-lexus-is250">
+        <div class="ae-case__photo"><img src="https://static.tildacdn.com/tild3061-6634-4539-a234-386362346365/IMG_20230419_110056_.webp" alt="Lexus IS 250 после ДТП" loading="lazy" decoding="async" width="640" height="480"></div>
+        <div class="ae-case__body">
+          <p class="ae-case__model">Lexus IS 250</p>
+          <h3 class="ae-case__title">Ущерб с&nbsp;виновника ДТП</h3>
+          <p class="ae-case__text">191&nbsp;200&nbsp;₽ без износа вместо 60&nbsp;700&nbsp;₽ с&nbsp;износом&nbsp;— расчёт для иска к&nbsp;виновнику.</p>
+          <div class="ae-case__bottom"><span class="ae-case__read">Читать разбор</span><span class="ae-case__arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+      <a class="ae-case" href="https://autoexpert26.ru/expertiza-okraski-kuzova-minvody">
+        <div class="ae-case__photo"><img src="https://static.tildacdn.com/tild3231-3164-4266-b330-306234373535/2026-05-29_105536.PNG" alt="Замер толщины лакокрасочного покрытия Jetour Dashing" loading="lazy" decoding="async" width="640" height="480"></div>
+        <div class="ae-case__body">
+          <p class="ae-case__model">Jetour Dashing</p>
+          <h3 class="ae-case__title">До&nbsp;265&nbsp;мкм&nbsp;— это перекрас?</h3>
+          <p class="ae-case__text">229 замеров, УФ-осмотр и&nbsp;проверка крепежа: ЛКП нового автомобиля оказалось заводским.</p>
+          <div class="ae-case__bottom"><span class="ae-case__read">Читать разбор</span><span class="ae-case__arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+    </div>
+    <p class="ae-cases__hint">Листайте, чтобы посмотреть другие кейсы →</p>
+  </div>
+</section>

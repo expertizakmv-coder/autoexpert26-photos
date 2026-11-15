@@ -1,0 +1,67 @@
+<!-- ═══ РЕЦЕНЗИЯ · 01 · Херо страницы (.hbs#recenziya) ═══
+     Суть: первый экран услуги — как слайд «Рецензия на экспертизу» с главной.
+     H1 страницы, одна строка сути, цена, телефон. Фото — 60% цвета, при наведении полный цвет.
+     Цвет: из head страницы (--svc-t / --svc-e), если их нет — цвета слайда «Рецензия».
+     Низ фото без затемнения: следующий блок наезжает скруглёнными углами (правило 00 в head страницы).
+     Правки: текст — в .hbs-k / h1 / .hbs-l / .hbs-p; фото — src у <img class="hbs-img">. -->
+<style>
+.hbs{--t:var(--svc-t,#2F3550);--e:var(--svc-e,#6E78B0);position:relative;height:min(700px,calc(100vh - 100px));min-height:560px;overflow:hidden;background:var(--t);font-family:'PT Serif',Georgia,serif;color:#fff;box-sizing:border-box}
+.hbs *{box-sizing:border-box}
+.hbs-bg{position:absolute;inset:0;background:radial-gradient(90% 120% at 85% 30%,var(--e) 0%,var(--t) 70%)}
+.hbs-img{position:absolute;top:0;left:69%;height:100%;width:auto;min-width:62%;aspect-ratio:1448/1086;transform:translateX(-50%);clip-path:inset(0 0 0 3px);object-fit:cover;object-position:50% 40%;filter:saturate(.6);transition:filter .7s ease;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 1.5%,rgba(0,0,0,.06) 5%,rgba(0,0,0,.18) 8%,rgba(0,0,0,.38) 12%,rgba(0,0,0,.6) 16%,rgba(0,0,0,.8) 20%,rgba(0,0,0,.93) 24%,#000 28%);
+ mask-image:linear-gradient(90deg,transparent 0%,transparent 1.5%,rgba(0,0,0,.06) 5%,rgba(0,0,0,.18) 8%,rgba(0,0,0,.38) 12%,rgba(0,0,0,.6) 16%,rgba(0,0,0,.8) 20%,rgba(0,0,0,.93) 24%,#000 28%)}
+.hbs-img:hover{filter:none}
+.hbs-bg i{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--t) 0%,var(--t) 26%,color-mix(in srgb,var(--t) 75%,transparent) 30%,color-mix(in srgb,var(--t) 40%,transparent) 36%,color-mix(in srgb,var(--t) 12%,transparent) 42%,transparent 48%)}
+.hbs-in{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;padding:0 120px;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.hbs-tx{max-width:600px;pointer-events:auto}
+.hbs-k{display:flex;align-items:center;gap:12px;margin:0 0 18px;font:13px/1.3 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:color-mix(in srgb,var(--e) 45%,#fff)}
+.hbs-k:before{content:"";width:28px;height:2px;background:#FFD600;flex:none}
+html body .hbs h1{margin:0 0 22px;font-family:'PT Serif',Georgia,serif;font-size:clamp(30px,2.5vw,36px);line-height:1.15;font-weight:400;letter-spacing:-.01em;color:#fff}
+.hbs-l{margin:0 0 22px;font-size:20px;line-height:1.55;color:rgba(255,255,255,.88);max-width:540px}
+.hbs-p{display:flex;align-items:baseline;gap:14px;margin:0;font-size:22px;font-weight:700}
+.hbs-p span{font:400 13px/1.3 Arial,sans-serif;color:rgba(255,255,255,.7)}
+.hbs-cta{display:flex;align-items:center;gap:22px;margin-top:40px}
+html body .hbs .hbs-tel{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:12px;background:#fff;color:#1A1F1F!important;font-size:17px;font-weight:700;text-decoration:none!important;transition:background .2s}
+html body .hbs .hbs-tel:hover{background:#EEF4F4}
+.hbs-tel svg{width:20px;height:20px;fill:currentColor}
+.hbs-cta span{font:13px/1.45 Arial,sans-serif;color:rgba(255,255,255,.7)}
+@media (max-width:1199px){.hbs-in{padding:0 80px}}
+/* телефон и планшет: фото сверху, текст ниже */
+@media (max-width:959px){
+  .hbs{height:auto;min-height:0}
+  .hbs-bg{position:relative;height:300px}
+  .hbs-img{left:0;transform:none;clip-path:none;width:100%;min-width:0;aspect-ratio:auto;object-position:40% 45%;-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 35%);mask-image:linear-gradient(0deg,transparent 0%,#000 35%)}
+  .hbs-bg i{display:none}
+  .hbs-in{padding:18px 20px 36px;height:auto;display:block}
+  .hbs-k{font-size:11.5px;letter-spacing:.12em;margin-bottom:12px}
+  html body .hbs h1{font-size:min(26px,6vw);line-height:1.18;margin-bottom:14px}
+  .hbs h1 br{display:none}
+  .hbs-l{font-size:16.5px;line-height:1.5;margin-bottom:16px}
+  .hbs-p{font-size:20px}
+  .hbs-cta{flex-direction:column;align-items:stretch;gap:12px;margin-top:24px}
+  html body .hbs .hbs-tel{justify-content:center;height:54px}
+  .hbs-cta span{text-align:center;font-size:12.5px}
+  .hbs-cta span br{display:none}
+}
+@media (max-width:959px) and (min-width:640px){.hbs-bg{height:420px}}
+</style>
+
+<section class="hbs" id="recenziya">
+  <div class="hbs-bg">
+    <img class="hbs-img" src="https://cdn.jsdelivr.net/gh/expertizakmv-coder/autoexpert26-photos@abf3fbdf7886c7b116a4439f38a638b90ee3b43d/hero-main/recenziya.webp" alt="Эксперт проверяет заключение судебной автотехнической экспертизы" width="1448" height="1086" fetchpriority="high">
+    <i></i>
+  </div>
+  <div class="hbs-in">
+    <div class="hbs-tx">
+      <p class="hbs-k">Рецензия · проверка заключения эксперта</p>
+      <h1>Рецензия на судебную <br>автотехническую экспертизу <br>в&nbsp;КМВ и&nbsp;СКФО</h1>
+      <p class="hbs-l">Проверю судебное или досудебное заключение: исходные данные, методику, расчёты и&nbsp;выводы. Недостатки обосную письменно&nbsp;— для возражений, вопросов эксперту и&nbsp;ходатайства о&nbsp;повторной экспертизе.</p>
+      <p class="hbs-p">от 10&nbsp;000&nbsp;₽ <span>письменная рецензия</span></p>
+      <div class="hbs-cta">
+        <a class="hbs-tel" href="tel:+79286522288"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>+7 928 652-22-88</a>
+        <span>Предварительное изучение — бесплатно. <br>Работаю дистанционно по&nbsp;СКФО и&nbsp;России.</span>
+      </div>
+    </div>
+  </div>
+</section>
